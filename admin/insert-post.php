@@ -1,5 +1,5 @@
 <?php 
-	include_once '../config.php';
+
 	$result = false;
 
 	if(!empty($_POST)){
@@ -32,7 +32,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-8">
-					<a class="btn btn-secondary" href="posts.php">Regresar</a><br><br>
+					<a class="btn btn-secondary" href="">Regresar</a><br><br>
 					<?php 
 						if ($result){
 							//ejecutamos mensaje de alerta si hay éxito en el query
@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<br>
-					<footer>&copy; Blogitage 2018. All rights reserved. <a href="../index.php">Inicio</a></footer>
+					<footer>&copy; Blogitage 2018. All rights reserved. <a href="">Inicio</a></footer>
 				</div>
 			</div>
 		</div>

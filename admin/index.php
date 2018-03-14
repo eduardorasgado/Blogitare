@@ -17,7 +17,7 @@
 				<div class="col-md-8">
 					<ul>
 						<li>
-							<a href="posts.php">Manage Posts</a>
+							<a href="http://localhost/CursoPHP/blog/public/index.php?route=/admin/posts">Manage Posts</a>
 						</li>
 					</ul>
 				</div>
@@ -29,7 +29,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<br>
-					<footer>&copy; Blogitage 2018. All rights reserved. <a href="../index.php">Inicio</a></footer>
+					<footer>&copy; Blogitage 2018. All rights reserved. <a href="">Inicio</a></footer>
 				</div>
 			</div>
 		</div>

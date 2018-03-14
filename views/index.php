@@ -1,13 +1,3 @@
-<?php 
-	include_once 'config.php';
-	$sql = "SELECT * FROM  blog_posts ORDER BY blog_id DESC";
-	$query = $PDO->prepare($sql);
-	$query->execute();
-
-	$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -48,7 +38,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<br>
-					<footer>&copy; Blogitage 2018. All rights reserved. <a href="admin/index.php">Admin Panel</a></footer>
+					<footer>&copy; Blogitage 2018. All rights reserved. <a href="">Admin Panel</a></footer>
 				</div>
 			</div>
 		</div>
