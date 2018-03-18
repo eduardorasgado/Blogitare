@@ -1,13 +1,3 @@
-<?php 
-	
-	$sql = "SELECT * FROM  blog_posts ORDER BY blog_id DESC";
-	$query = $PDO->prepare($sql);
-	$query->execute();
-
-	$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,7 +17,7 @@
 			<div class="row">
 				<div class="col-md-8">
 					<h2>Post Manage System</h2>
-					<a class="btn btn-primary" href="">New Post</a><br><br>
+					<a class="btn btn-primary" href="<?= BASE_URL.'admin/posts/create' ?>">New Post</a><br><br>
 					<table class="table">
 						<tr>
 							<th>Title</th>
@@ -60,7 +50,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<br>
-					<footer>&copy; Blogitage 2018. All rights reserved. <a href="">Inicio</a></footer>
+					<footer>&copy; Blogitage 2018. All rights reserved. <a href="<?= BASE_URL ?>">Inicio</a></footer>
 				</div>
 			</div>
 		</div>

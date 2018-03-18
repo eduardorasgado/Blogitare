@@ -1,19 +1,3 @@
-<?php 
-
-	$result = false;
-
-	if(!empty($_POST)){
-		$sql = "INSERT INTO blog_posts (title, content) VALUES (:title, :content)";
-		$query = $PDO->prepare($sql);
-		$result = $query->execute([
-			'title' => $_POST['title'],
-			'content' => $_POST['content']
-		]);
-		$result=true;
-	}
-
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -26,20 +10,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<a href="../index.php"><h1>Blogitage</h1></a><br><br>
+					<a href=<?= BASE_URL ?>><h1>Blogitage</h1></a><br><br>
 					<h2>Escribe un nuevo post</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-8">
-					<a class="btn btn-secondary" href="">Regresar</a><br><br>
+					<a class="btn btn-secondary" href="<?= BASE_URL.'/admin/posts' ?>">Regresar</a><br><br>
 					<?php 
-						if ($result){
+						if (isset($result) && $result){
 							//ejecutamos mensaje de alerta si hay éxito en el query
 							echo '<div class="alert alert-success">Has pubicado con éxito!</div>';
 						}
 			 		?>	
-					<form action="insert-post.php" method="POST">
+					<form action="" method="POST">
 						<div class="form-group">
 							<label for="inputTitle">Título</label>
 							<input class="form-control" type="text" name="title" id="inputTitle" size="80" maxlength="80">
@@ -57,7 +41,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<br>
-					<footer>&copy; Blogitage 2018. All rights reserved. <a href="">Inicio</a></footer>
+					<footer>&copy; Blogitage 2018. All rights reserved. <a href="<?= BASE_URL ?>">Inicio</a></footer>
 				</div>
 			</div>
 		</div>

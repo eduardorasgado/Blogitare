@@ -38,7 +38,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<br>
-					<footer>&copy; Blogitage 2018. All rights reserved. <a href="">Admin Panel</a></footer>
+					<footer>&copy; Blogitage 2018. All rights reserved. <a href="<?= BASE_URL.'admin' ?>">Admin Panel</a></footer>
 				</div>
 			</div>
 		</div>
