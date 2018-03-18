@@ -10,6 +10,18 @@
 	require_once '../vendor/autoload.php';
 	include_once '../config.php';
 	
+	$baseURL = '';
+	//reemplazar index.php en la cadena del dir del server, y reescibir esta cadena
+	$baseDir = str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME'] );
+
+	$baseURL = 'http://'.$_SERVER['HTTP_HOST'].$baseDir;
+	
+	//var_dump($baseDir);
+	//var_dump($baseURL);
+
+	define("BASE_URL", $baseURL);
+	
+
 	//uso de la variable global GET
 	$route = $_GET['route'] ?? '/';
 
@@ -24,7 +36,7 @@
 		$query->execute();
 
 		$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
-
+		
 		include '../views/index.php';
 	});
 
