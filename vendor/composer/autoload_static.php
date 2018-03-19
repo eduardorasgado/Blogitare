@@ -6,17 +6,55 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitd05204e73dd03cbfba6741d8985a8e50
 {
+    public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'Twig\\' => 5,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+        ),
         'P' => 
         array (
             'Phroute\\Phroute\\' => 16,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
         'Phroute\\Phroute\\' => 
         array (
             0 => __DIR__ . '/..' . '/phroute/phroute/src/Phroute',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'T' => 
+        array (
+            'Twig_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/twig/lib',
+            ),
         ),
     );
 
@@ -25,6 +63,7 @@ class ComposerStaticInitd05204e73dd03cbfba6741d8985a8e50
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitd05204e73dd03cbfba6741d8985a8e50::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitd05204e73dd03cbfba6741d8985a8e50::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd05204e73dd03cbfba6741d8985a8e50::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
