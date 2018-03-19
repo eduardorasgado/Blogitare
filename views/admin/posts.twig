@@ -1,54 +1,28 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Blogitare | Post List</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					 <a href="{{ '' | url }}"><h1>Blogitare</h1></a>
-					<br><br>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-8">
-					<h2>Post Manage System</h2>
-					<a class="btn btn-primary" href="{{ 'admin/posts/create' | url }}">New Post</a><br><br>
-					<table class="table">
-						<tr>
-							<th>Title</th>
-							<th>Content</th>
-							<th>Edit</th>
-							<th>Delete</th>
-						</tr	>
+{% extends "layout.twig" %}
 
-						{% for blogPost in blogPosts %}
-							<tr>
-								<td>{{ blogPost.title }}</td>
-								<td>{{ blogPost.content }}</td>
-								<td><a href="">Edit</a></td>
-								<td><a href="">Delete</a></td>
-							</tr>
-						{% endfor %}
+{% block content %}
+	<h2>Post Manage System</h2>
+	<a class="btn btn-primary" href="{{ 'admin/posts/create' | url }}">New Post</a><br><br>
+	<table class="table">
+		<tr>
+			<th>Title</th>
+			<th>Content</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr	>
 
-					</table>
+		{% for blogPost in blogPosts %}
+			<tr>
+				<td>{{ blogPost.title }}</td>
+				<td>{{ blogPost.content[0:100] }}...</td>
+				<td><a href="">Edit</a></td>
+				<td><a href="">Delete</a></td>
+			</tr>
+		{% endfor %}
 
-				</div>
-				<div class="col-md-4">
-					<h2>Más entradas del blog</h2>
-					<p>Ut euismod ante ac mi tempus posuere. Nam et sem eu eros vehicula pulvinar auctor sit amet orci.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<br>
-					<footer>&copy; Blogitage 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
+	</table>
+{% endblock %}
+
+{% block content2 %}
+	<footer>&copy; Blogitage 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
+{% endblock %}
