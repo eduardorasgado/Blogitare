@@ -76,6 +76,8 @@
 
 	$router->controller('/', App\Controllers\indexController::class);
 
+	$router->controller('/admin/users', App\Controllers\Admin\userController::class);
+
 	//dispatcher, preparando para mostrar las vistas
 	$dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 	$response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $route);

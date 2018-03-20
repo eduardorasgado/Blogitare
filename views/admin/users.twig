@@ -1,20 +1,20 @@
 {% extends "layout.twig" %}
 
 {% block content %}
-	<h2>Tabla de manejo de tus Posts</h2>
-	<a class="btn btn-primary" href="{{ 'admin/posts/create' | url }}">Nuevo Post</a><br><br>
+	<h2>Usuarios</h2>
+	<a class="btn btn-primary" href="{{ 'admin/users/create' | url }}">Nuevo usuario</a><br><br>
 	<table class="table">
 		<tr>
-			<th>Título</th>
-			<th>Contenido</th>
+			<th>Nombre</th>
+			<th>Email</th>
 			<th>Editar</th>
 			<th>Borrar</th>
 		</tr	>
 
-		{% for blogPost in blogPosts %}
+		{% for user in users %}
 			<tr>
-				<td>{{ blogPost.title }}</td>
-				<td>{{ blogPost.content[0:100] }}...</td>
+				<td>{{ blogPost.name }}</td>
+				<td>{{ blogPost.email }}...</td>
 				<td><a href="">Editar</a></td>
 				<td><a href="">Borrar</a></td>
 			</tr>
