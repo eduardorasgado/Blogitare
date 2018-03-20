@@ -9,12 +9,32 @@
 		<!--ejecutamos mensaje de alerta si hay éxito en el query-->
 		<div class="alert alert-success">Has pubicado con éxito!</div>
 	{% endif %}
+	{% if errors %}
+		<div class="alert alert-danger">
+			Oops! Algo ha salido mal!
+			<ul>
+				{% for input, messages in errors %}
+					{% for message in messages %}
+
+						<!--traduccion-->
+						{% if input == 'title' %}
+							<li>Título: {{ message }}</li>
+						{% elseif input == 'content' %}
+							<li>Contenido: {{ message }}</li>
+						{% endif %}
+					
+					{% endfor %}
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}	
 
 	<form action="" method="POST">
 		<div class="form-group">
 			<label for="inputTitle">Título</label>
 			<input class="form-control" type="text" name="title" id="inputTitle" size="80" maxlength="80">
 		</div>
+		<label for="inputContent">Contenido</label>
 		<textarea class="form-control" name="content" id="inputContent" cols="90" rows="20"></textarea>
 		<br>
 		<input class="btn btn-primary" type="submit" value="Publicar" name="">
