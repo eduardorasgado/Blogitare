@@ -9,18 +9,6 @@ use Sirius\Validation\Validator;
 class PostController extends baseController {
 
 	public function getIndex(){
-		//Old way
-		//admin/posts o podemos acceder con admin/posts/index.php
-
-		//para sustituir use($PDO) en index.php public
-		//global $PDO;
-
-		//$sql = "SELECT * FROM  blog_posts ORDER BY blog_id DESC";
-		//$query = $PDO->prepare($sql);
-		//$query->execute();
-
-		// con \ le decimos a php q PDO está en el namespace global
-		//$blogPosts = $query->fetchAll(\PDO::FETCH_ASSOC);
 		
 		//New way
 		//Ejecutando consulta a sql desde illuminate

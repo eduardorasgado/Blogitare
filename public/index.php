@@ -11,9 +11,10 @@
 
 	//cargando desde composer, las librerías
 	require_once '../vendor/autoload.php';
-	//aqui adentro está el PDO
-	//include_once '../config.php';
-	
+
+	//Inicio de sesion, al tener el front controller ya no es necesario
+	//iniciar la sesion en otras partes de la aplicacion
+	session_start();
 
 	//Constante para URL dinámica
 
@@ -77,6 +78,8 @@
 	$router->controller('/', App\Controllers\indexController::class);
 
 	$router->controller('/admin/users', App\Controllers\Admin\userController::class);
+
+	$router->controller('/auth', App\Controllers\authController::class);
 
 	//dispatcher, preparando para mostrar las vistas
 	$dispatcher = new Phroute\Phroute\Dispatcher($router->getData());

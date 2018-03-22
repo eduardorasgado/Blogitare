@@ -5,28 +5,12 @@
 
 	<a class="btn btn-secondary" href="{{ 'admin/posts' | url }}">Regresar</a><br><br>
 
-	{% if result and result!=null %}
+	{% if result %}
 		<!--ejecutamos mensaje de alerta si hay éxito en el query-->
 		<div class="alert alert-success">Has pubicado con éxito!</div>
 	{% endif %}
 	{% if errors %}
-		<div class="alert alert-danger">
-			Oops! Algo ha salido mal!
-			<ul>
-				{% for input, messages in errors %}
-					{% for message in messages %}
-
-						<!--traduccion-->
-						{% if input == 'title' %}
-							<li>Título: {{ message }}</li>
-						{% elseif input == 'content' %}
-							<li>Contenido: {{ message }}</li>
-						{% endif %}
-					
-					{% endfor %}
-				{% endfor %}
-			</ul>
-		</div>
+		{% include('partials/errors.twig') %}
 	{% endif %}	
 
 	<form action="" method="POST">
