@@ -11,9 +11,10 @@
 
 	//cargando desde composer, las librerías
 	require_once '../vendor/autoload.php';
-	//aqui adentro está el PDO
-	//include_once '../config.php';
-	
+
+	//Inicio de sesion, al tener el front controller ya no es necesario
+	//iniciar la sesion en otras partes de la aplicacion
+	session_start();
 
 	//Constante para URL dinámica
 
@@ -28,8 +29,6 @@
 
 	define("BASE_URL", $baseURL);
 
-	//uso de la variable global GET
-	$route = $_GET['route'] ?? '/';
 
 	//Variables de entorno con Dotenv
 	//instalado con: composer require vlucas/phpdotenv
@@ -60,6 +59,8 @@
 	// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 	$capsule->bootEloquent();
 
+	//uso de la variable global GET
+	$route = $_GET['route'] ?? '/';
 
 	//comienzo de uso de librería PHRoute
 	use Phroute\Phroute\RouteCollector;
@@ -67,16 +68,34 @@
 	//inicializamos una instancia para guardar rutas
 	$router = new RouteCollector();
 
-	//definimos las rutas, usando controladores
-	$router->controller('/admin', App\Controllers\Admin\indexController::class);
+	//filtro(middleware)
+	$router->filter('auth',function(){
 
-	//solo necesitamos una ruta para el mismo archivo cuando se agrupan metodos en 
-	//postController.php
-	$router->controller('/admin/posts', App\Controllers\Admin\postController::class);	
+		if (!isset($_SESSION['userId'])){
+			header('Location:'.BASE_URL.'auth/login');
+			return false;
+		}
+	});
+
+	//definimos las rutas, usando controladores
+	$router->controller('/auth', App\Controllers\authController::class);
+
+	//Agrupación de routers por filtro pre carga
+	//Si hay usuario logueado, acceso permitido
+	$router->group(['before' => 'auth'],function($router){
+		$router->controller('/admin', App\Controllers\Admin\indexController::class);
+
+		//solo necesitamos una ruta para el mismo archivo cuando se agrupan metodos en 
+		//postController.php
+		$router->controller('/admin/posts', App\Controllers\Admin\postController::class);
+		$router->controller('/admin/users', App\Controllers\Admin\userController::class);
+	});
 
 	$router->controller('/', App\Controllers\indexController::class);
 
-	$router->controller('/admin/users', App\Controllers\Admin\userController::class);
+	
+
+
 
 	//dispatcher, preparando para mostrar las vistas
 	$dispatcher = new Phroute\Phroute\Dispatcher($router->getData());

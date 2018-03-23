@@ -5,34 +5,22 @@
 
 	<a class="btn btn-secondary" href="{{ 'admin/posts' | url }}">Regresar</a><br><br>
 
-	{% if result and result!=null %}
+	{% if result %}
 		<!--ejecutamos mensaje de alerta si hay éxito en el query-->
 		<div class="alert alert-success">Has pubicado con éxito!</div>
 	{% endif %}
 	{% if errors %}
-		<div class="alert alert-danger">
-			Oops! Algo ha salido mal!
-			<ul>
-				{% for input, messages in errors %}
-					{% for message in messages %}
-
-						<!--traduccion-->
-						{% if input == 'title' %}
-							<li>Título: {{ message }}</li>
-						{% elseif input == 'content' %}
-							<li>Contenido: {{ message }}</li>
-						{% endif %}
-					
-					{% endfor %}
-				{% endfor %}
-			</ul>
-		</div>
+		{% include('partials/errors.twig') %}
 	{% endif %}	
 
 	<form action="" method="POST">
 		<div class="form-group">
 			<label for="inputTitle">Título</label>
 			<input class="form-control" type="text" name="title" id="inputTitle" size="80" maxlength="80">
+		</div>
+		<div class="form-group">
+			<label for="inputImg">Imagen(opcional)</label>
+			<input class="form-control" type="text" name="img" id="inputImg" size="80" maxlength="80">
 		</div>
 		<label for="inputContent">Contenido</label>
 		<textarea class="form-control" name="content" id="inputContent" cols="90" rows="20"></textarea>

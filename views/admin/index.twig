@@ -2,6 +2,9 @@
 
 {% block content %}
 	<h2>Administración del blog</h2>
+	<p>
+		Bienvenid@ {{ user.name }}!
+	</p>
 	<ul>
 		<li>
 			<a href="{{ 'admin/posts' | url }}">Control de Posts</a>
@@ -9,9 +12,12 @@
 		<li>
 			<a href="{{ 'admin/users' | url }}">Control de Usuarios</a>
 		</li>
+		<li>
+			<a href="{{ 'auth/logout' | url }}">Logout</a>
+		</li>
 	</ul>
 {% endblock %}
 
 {% block content2 %}
-	<footer>&copy; Blogitage 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
+	<footer>&copy; Blogitare 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
 {% endblock %}

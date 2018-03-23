@@ -6,9 +6,13 @@
 			<h2>{{ blogPost.title }}</h2>
 			<p>March 15, 2018 by <a href="">Alex Campos</a></p>
 		</div>
-		<div class="blog-post-image">
-			<img src="images/fotito.jpg" alt="" style="height: 300px;width: 400px;">
-		</div>
+		{% if blogPost.img_url %}
+			<div class="blog-post-image img-fluid">
+				<!--Ejemplo con imagenes random: -->
+				<!--https://source.unsplash.com/random/800x600 -->
+				<img src="{{ blogPost.img_url }}" alt="{{ blogPost.img_url }}" style="height: 300px;width: 400px;">
+			</div>
+		{% endif %}
 		<div class="blog-post-content">
 			<p>{{ blogPost.content }}</p>
 		</div>
@@ -16,5 +20,5 @@
 {% endblock %}
 
 {% block content2 %}
-	<footer>&copy; Blogitage 2018. All rights reserved. <a href="{{'admin' | url }}">Admin Panel</a></footer>
+	<footer>&copy; Blogitare 2018. All rights reserved. <a href="{{'admin' | url }}">Admin Panel</a></footer>
 {% endblock %}
