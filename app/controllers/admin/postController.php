@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\baseController;
 use App\Models\BlogPost;
 use Sirius\Validation\Validator;
+use App\Models\user;
 
 class PostController extends baseController {
 
@@ -26,6 +27,11 @@ class PostController extends baseController {
 	public function postCreate(){
 		//admin/posts/create  submit
 
+		//query de user que sube post 
+		$userId = $_SESSION['userId'];
+		$userLogged = User::query()->where('users_id','=',$userId)->first();
+		$userLogged = $userLogged['name'];
+
 		$result = false;
 
 		//Uso de Sirius validator
@@ -42,7 +48,8 @@ class PostController extends baseController {
 			//Insertar con ORM Illuminate
 			$blogPost = new BlogPost([
 				'title' => $_POST['title'],
-				'content' => $_POST['content']
+				'content' => $_POST['content'],
+				'author' => $userLogged
 			]);
 
 			//imagen no obligatoria, pero si existe guardar
