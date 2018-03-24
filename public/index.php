@@ -1,6 +1,6 @@
 <?php 
 	//Se usa Composer(packagist.org),TWIG,PHP7,phroute,psr-4,illuminate
-	//siriusphp
+	//siriusphp, monolog
 
 	//IMPLEMENTACIÓN DE FRONT CONTROLLER
 
