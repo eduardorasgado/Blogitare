@@ -3,7 +3,9 @@
 {% block content %}
 	{% for blogPost in blogPosts %}
 		<div class="blog-post">
-			<h2><a href="{{ 'detail/' | url }}{{ blogPost.blog_id }}">{{ blogPost.title }}</a></h2>
+			<!--Obtenemosel link descriptivo para mejorar seo de articulos-->
+			<h2><a href="{{ 'detail/' | url }}{{ blogPost.blog_id }}_{{ blogPost.title | replace({' ':'_'}) }}">
+				{{ blogPost.title }}</a></h2>
 			<p>{{blogPost.created_at[0:10]}} por <a href="">{{ blogPost.author }}</a></p>
 		</div>
 		{% if blogPost.img_url %}
@@ -18,6 +20,19 @@
 			<p>{{ blogPost.content[0:600] }}...</p>
 		</div>
 	{% endfor %}
+
+	{% if links.prev != null %}
+		<a href="{{'' | url }}">Inicio</a> |
+		< <a href="{{ '' | url }}{{ links.prev }}">Anterior</a>
+	{% endif %}
+	{% if links.prev != null and links.next != null %}
+		 |
+	{% endif %}
+	{% if links.next != null %}
+			<a href="{{ '' | url }}{{ links.next }}">Siguiente</a>
+			>
+	{% endif %}
+
 {% endblock %}
 
 {% block content2 %}
