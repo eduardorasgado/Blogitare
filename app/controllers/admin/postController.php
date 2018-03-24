@@ -3,7 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\baseController;
-use App\Models\BlogPost;
+use App\Models\blogPost;
 use Sirius\Validation\Validator;
 use App\Models\user;
 

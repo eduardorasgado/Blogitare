@@ -2,7 +2,9 @@
 
 {% block content %}
 	<h2>Tabla de manejo de tus Posts</h2>
-	<a class="btn btn-primary" href="{{ 'admin/posts/create' | url }}">Nuevo Post</a><br><br>
+	<a class="btn btn-primary" href="{{ 'admin/posts/create' | url }}">Nuevo Post</a>
+	<a class="btn btn-light" href="{{ 'admin/' | url }}">Regresar</a>
+	<br><br>
 	<table class="table">
 		<tr>
 			<th>Título</th>
@@ -24,5 +26,5 @@
 {% endblock %}
 
 {% block content2 %}
-	<footer>&copy; Blogitage 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
+	<footer>&copy; Blogitare 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
 {% endblock %}

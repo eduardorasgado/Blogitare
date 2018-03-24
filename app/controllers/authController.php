@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Controllers\baseController;
+//Si esta en la misma carpeta al mismo nivel no se importa
+//use App\Controllers\baseController;
 use Sirius\Validation\Validator;
 use App\Models\user;
 use App\log;
@@ -32,6 +33,7 @@ class AuthController extends baseController {
 					$_SESSION['userId'] = $user->users_id;
 
 					//guardar log de control de usuarios
+					//con Monolog, en log.php
 					Log::logInfo('Login userId:'.$user->users_id);
 					
 					//enviar un encabezado en la respuesta

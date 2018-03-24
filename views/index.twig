@@ -3,7 +3,7 @@
 {% block content %}
 	{% for blogPost in blogPosts %}
 		<div class="blog-post">
-			<h2>{{ blogPost.title }}</h2>
+			<h2><a href="{{ 'detail/' | url }}{{ blogPost.blog_id }}">{{ blogPost.title }}</a></h2>
 			<p>{{blogPost.created_at[0:10]}} por <a href="">{{ blogPost.author }}</a></p>
 		</div>
 		{% if blogPost.img_url %}
@@ -15,7 +15,7 @@
 		{% endif %}
 		<br>
 		<div class="blog-post-content">
-			<p>{{ blogPost.content }}</p>
+			<p>{{ blogPost.content[0:600] }}...</p>
 		</div>
 	{% endfor %}
 {% endblock %}

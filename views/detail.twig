@@ -1,0 +1,27 @@
+{% extends "layout.twig" %}
+{% block content %}
+	<a class="btn btn-light" href="{{ '' | url }}">Regresar</a><br><br>
+	{% for blogPost in blogPosts %}
+		<div class="blog-post">
+			<h2>{{blogPost.title}}</h2>
+			<p>{{blogPost.created_at[0:10]}} por <a href="">{{ blogPost.author }}</a></p>
+		</div>
+		{% if blogPost.img_url %}
+				<div class="blog-post-image img-fluid">
+					<!--Ejemplo con imagenes random: -->
+					<!--https://source.unsplash.com/random/800x600 -->
+					<img src="{{ blogPost.img_url }}" alt="{{ blogPost.img_url }}" style="width: 80%">
+				</div>
+		{% endif %}
+
+		<br>
+		<div class="blog-post-content">
+			<p>{{ blogPost.content }}</p>
+		</div>
+	{% endfor %}
+
+{% endblock %}
+
+{% block content2 %}
+	<footer>&copy; Blogitare 2018. All rights reserved. <a href="{{'admin' | url }}">Admin Panel</a></footer>
+{% endblock %}

@@ -3,7 +3,8 @@
 {% block content %}
 	<h2>Agregar un nuevo usuario</h2><br><br>
 
-	<a class="btn btn-secondary" href="{{ 'admin/users' | url }}">Regresar</a><br><br>
+	<a class="btn btn-light" href="{{ 'admin/users' | url }}">Regresar</a>
+	<br><br>
 
 	{% if result %}
 		<!--ejecutamos mensaje de alerta si hay éxito en el query-->
@@ -33,6 +34,6 @@
 {% endblock %}
 
 {% block content2 %}
-<footer>&copy; Blogitage 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
+<footer>&copy; Blogitare 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
 {% endblock %}
 
