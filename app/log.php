@@ -1,5 +1,5 @@
 <?php 
-//La siguiente clase es construida con patron siggletone
+//La siguiente clase es construida con patron sigleton
 //Esto es una sola instancia de la clase en toda la sesion
 namespace App;
 
@@ -24,12 +24,14 @@ class Log {
 		//streamHandler(log, direccion de archivo, tipo de archivo)
 		self::getLogger()->pushHandler(
 			new StreamHandler('../logs/application.log',Logger::ERROR));
+			//para escribir en application.Log debemos de conceder permisos
+			//al sistema chmod +x application.log en caso linux y mac
 
 		//guardar
 		self::getLogger()->addError($error);
 	}
 
-	public static function infoError($info){
+	public static function loginfo($info){
 
 	self::getLogger()->pushHandler(
 		new StreamHandler('../logs/application.log',Logger::INFO));

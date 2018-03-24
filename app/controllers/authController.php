@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\baseController;
 use Sirius\Validation\Validator;
 use App\Models\user;
+use App\log;
 
 class AuthController extends baseController {
 
@@ -28,8 +29,10 @@ class AuthController extends baseController {
 					
 					//Session de variable superglobal, solo activa si
 					//se ha iniciado session en el index.php de public
-
 					$_SESSION['userId'] = $user->users_id;
+
+					//guardar log de control de usuarios
+					Log::logInfo('Login userId:'.$user->users_id);
 					
 					//enviar un encabezado en la respuesta
 					//en este caso de redirección
