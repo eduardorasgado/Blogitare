@@ -23,10 +23,8 @@
 	$baseDir = str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME'] );
 
 	$baseURL = 'http://'.$_SERVER['HTTP_HOST'].$baseDir;
-	
-	//var_dump($baseDir);
-	//var_dump($baseURL);
 
+	//Definiendo constante global
 	define("BASE_URL", $baseURL);
 
 
@@ -92,10 +90,6 @@
 	});
 
 	$router->controller('/', App\Controllers\indexController::class);
-
-	
-
-
 
 	//dispatcher, preparando para mostrar las vistas
 	$dispatcher = new Phroute\Phroute\Dispatcher($router->getData());

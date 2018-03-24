@@ -28,6 +28,7 @@ class AuthController extends baseController {
 					
 					//Session de variable superglobal, solo activa si
 					//se ha iniciado session en el index.php de public
+
 					$_SESSION['userId'] = $user->users_id;
 					
 					//enviar un encabezado en la respuesta
@@ -49,7 +50,8 @@ class AuthController extends baseController {
 	}
 
 	public function getLogout() {
-		unset($_SESSION['userId']);
+		session_destroy($_SESSION['userId']);
 		header('Location:'.BASE_URL.'auth/login');
 	}
+
 }
