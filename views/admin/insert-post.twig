@@ -13,7 +13,7 @@
 		{% include('partials/errors.twig') %}
 	{% endif %}	
 
-	<form action="" method="POST">
+	<form action="" method="POST" onsubmit="return validateForm()">
 		<div class="form-group">
 			<label for="inputTitle">Título</label>
 			<input class="form-control" type="text" name="title" id="inputTitle" size="80" maxlength="80">
@@ -31,5 +31,9 @@
 
 {% block content2 %}
 <footer>&copy; Blogitare 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
+{% endblock %}
+
+{% block js %}
+	{% include('partials/validateTitle.twig') %}
 {% endblock %}
 

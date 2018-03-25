@@ -1,0 +1,13 @@
+<script type="text/javascript">
+		function validateForm(){
+			//Con trim eliminamos cualquier caracter que esté en las orillas
+			//Sean espacios en vacio
+			var title = document.getElementById('inputTitle').value.trim();
+			if(title === '' ){
+				swal('Ops...',
+					'El titulo es parte importante de un buen post!',
+					'error');
+				return false;
+			}
+		}
+	</script>

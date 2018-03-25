@@ -1,6 +1,9 @@
 <?php 
 	//Se usa Composer(packagist.org),TWIG,PHP7,phroute,psr-4,illuminate
 	//siriusphp, monolog
+	//sweetalert2 usando cdn desde:
+	//https://www.jsdelivr.com/package/npm/sweetalert2
+	//usado en layout.twig
 
 	//IMPLEMENTACIÓN DE FRONT CONTROLLER
 
