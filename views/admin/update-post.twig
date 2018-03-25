@@ -1,0 +1,30 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+	<h2>Editar post</h2><br><br>
+
+	<a class="btn btn-light" href="{{ 'admin/posts' | url }}">Regresar</a><br><br>
+
+	{% if errors %}
+		{% include('partials/errors.twig') %}
+	{% endif %}	
+
+	<form action="" method="POST">
+		<div class="form-group">
+			<label for="inputTitle">Título</label>
+			<input class="form-control" type="text" name="title" id="inputTitle" value="{{ blogPost.title }}" size="80" maxlength="80">
+		</div>
+		<div class="form-group">
+			<label for="inputImg">Imagen(opcional)</label>
+			<input class="form-control" type="text" name="img" id="inputImg" value="{{ blogPost.img_url }}" size="80" maxlength="80">
+		</div>
+		<label for="inputContent">Contenido</label>
+		<textarea class="form-control" name="content" id="inputContent" cols="90" rows="20">{{ blogPost.content }}</textarea>
+		<br>
+		<input class="btn btn-primary" type="submit" value="Publicar" name="">
+	</form>
+{% endblock %}
+
+{% block content2 %}
+	<footer>&copy; Blogitare 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
+{% endblock %}

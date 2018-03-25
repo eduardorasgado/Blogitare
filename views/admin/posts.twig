@@ -5,6 +5,12 @@
 	<a class="btn btn-primary" href="{{ 'admin/posts/create' | url }}">Nuevo Post</a>
 	<a class="btn btn-light" href="{{ 'admin/' | url }}">Regresar</a>
 	<br><br>
+	{% if result %}
+		<!--ejecutamos mensaje de alerta si hay éxito en el query de update-post-->
+		<div class="alert alert-success">Has editado y publicado con éxito!</div>
+		<br>
+	{% endif %}
+
 	<table class="table">
 		<tr>
 			<th>Título</th>
@@ -17,7 +23,7 @@
 			<tr>
 				<td>{{ blogPost.title }}</td>
 				<td>{{ blogPost.content[0:100] }}...</td>
-				<td><a href="">Editar</a></td>
+				<td><a href="{{ 'admin/posts/edit' | url }}/{{ blogPost.blog_id }}">Editar</a></td>
 				<td><a href="{{ 'admin/posts/delete' | url }}/{{ blogPost.blog_id }}">Borrar</a></td>
 			</tr>
 		{% endfor %}
