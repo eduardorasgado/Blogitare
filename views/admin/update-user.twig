@@ -1,0 +1,43 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+	<h2>Editar información de usuario usuario</h2><br><br>
+
+	<a class="btn btn-light" href="{{ 'admin/users' | url }}">Regresar</a>
+	<br><br>
+
+	{% if errors %}
+		{% include('partials/errors.twig') %}
+	{% endif %}	
+
+	<form action="" method="POST">
+		<div class="form-group">
+			<label for="inputName">Nombre</label>
+			<input class="form-control" type="text" name="name" id="inputName" value="{{ user.name }}">
+		</div>
+		<div class="form-group">
+			<label for="inputEmail">Email</label>
+			<input class="form-control" type="text" name="email" id="inputEmail" value="{{ user.email }}">
+		</div>
+		<div class="form-group">
+			<label for="inputPassword">Contraseña Actual</label>
+			<input class="form-control" type="password" name="password" id="inputPassword">
+		</div>
+		<br>
+		<p>Deja en blanco los siguientes campos si no planeas cambiar tu contraseña.</p>
+		<div class="form-group">
+			<label for="inputNewPassword">Nueva Contraseña</label>
+			<input class="form-control" type="password" name="newPassword" id="inputNewPassword">
+		</div>
+		<div class="form-group">
+			<label for="inputNewRepeatedPassword">Nueva Contraseña (repetir)</label>
+			<input class="form-control" type="password" name="newRepeatedPassword" id="inputNewRepeatedPassword">
+		</div>
+		<br>
+		<input class="btn btn-primary" type="submit" value="Guardar" name="">
+	</form>
+{% endblock %}
+
+{% block content2 %}
+	<footer>&copy; Blogitare 2018. All rights reserved. <a href="{{ '' | url }}">Inicio</a></footer>
+{% endblock %}

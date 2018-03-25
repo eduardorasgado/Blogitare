@@ -90,6 +90,8 @@
 		$router->controller('/admin/posts', App\Controllers\Admin\editController::class);
 
 		$router->controller('/admin/users', App\Controllers\Admin\userController::class);
+
+		$router->controller('/admin/users', App\Controllers\Admin\userEditController::class);
 	});
 
 	$router->controller('/', App\Controllers\indexController::class);

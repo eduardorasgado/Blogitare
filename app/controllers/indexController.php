@@ -6,7 +6,8 @@ namespace App\Controllers;
 use App\Models\blogPost;
 
 class IndexController extends baseController {
-
+	//Estas funciones estan predefinidas y bajo un estadar
+	//get o post + la funcion dada: index, delete, edit, create
 	public function getIndex($number = 1){
 		//paginacion del blog
 		$count = BlogPost::count();
@@ -28,11 +29,11 @@ class IndexController extends baseController {
 		//SELECT * FROM blog_posts  --->
 		#$blogPosts = BlogPost::query()->orderBy('blog_id', 'desc')->get();
 
-		//Nueva query para paginacion
+		//Nueva query para paginacion, take(n) donde n es numero de items 
 		$blogPosts = BlogPost::query()->
 				orderBy('blog_id', 'desc')->
 					skip(2*($number-1))->
-							take(2)->get();
+							take(4)->get();
 
 		//la ruta ya no es completa puesto que ya la definimos dentro del constructor de la clase base
 		return $this->render('index.twig',[

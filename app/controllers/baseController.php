@@ -11,7 +11,7 @@ use Twig_SimpleFilter;
 class BaseController {
 
 	protected $templateEngine;
-
+	//Esta base es padre y es importante para la funcion de los controllers
 	public function __construct(){
 		//recibe donde están las vistas
 		$loader = new Twig_Loader_Filesystem('../views');
@@ -25,7 +25,7 @@ class BaseController {
 			return BASE_URL.$path;
 		}));
 	}
-
+	//El render viene de la funcion interna de twig
 	public function render($fileName, $data = []){
 			return $this->templateEngine->render($fileName,$data);
 	}

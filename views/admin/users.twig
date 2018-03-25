@@ -5,6 +5,11 @@
 	<a class="btn btn-primary" href="{{ 'admin/users/create' | url }}">Nuevo usuario</a>
 	<a class="btn btn-light" href="{{ 'admin/' | url }}">Regresar</a>
 	<br><br>
+	{% if result %}
+		<!--ejecutamos mensaje de alerta si hay éxito en el query-->
+		<div class="alert alert-success">Usuario actualizado!</div>
+		<br>
+	{% endif %}
 	<table class="table">
 		<tr>
 			<th>Nombre</th>
@@ -17,8 +22,8 @@
 			<tr>
 				<td>{{ user.name }}</td>
 				<td>{{ user.email }}</td>
-				<td><a href="">Editar</a></td>
-				<td><a href="">Borrar</a></td>
+				<td><a href="{{ 'admin/users/edit' | url }}/{{ user.users_id }}">Editar</a></td>
+				<td><a href="{{ 'admin/users/delete' | url }}/{{ user.users_id }}">Borrar</a></td>
 			</tr>
 		{% endfor %}
 
