@@ -86,6 +86,9 @@
 		//solo necesitamos una ruta para el mismo archivo cuando se agrupan metodos en 
 		//postController.php
 		$router->controller('/admin/posts', App\Controllers\Admin\postController::class);
+
+		$router->controller('/admin/posts', App\Controllers\Admin\editController::class);
+
 		$router->controller('/admin/users', App\Controllers\Admin\userController::class);
 	});
 

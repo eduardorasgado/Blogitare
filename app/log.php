@@ -1,6 +1,8 @@
 <?php 
 //La siguiente clase es construida con patron sigleton
 //Esto es una sola instancia de la clase en toda la sesion
+//Se instala monolog via:
+//composer require monolog/monolog
 namespace App;
 
 use Monolog\Logger;

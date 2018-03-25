@@ -43,11 +43,35 @@ class PostController extends baseController {
 		$validator->add('content','required');
 		$validator->add('content','minlength','min=200');
 		
+		if ($validator->validate($_POST)){	
 
-		if ($validator->validate($_POST)){
+			//limpiandoel titulo para no terminar con _
+			$rawTitle = $_POST['title'];
+			$new_title = '';
+			//uno menos que la logitud del string
+			//para hacerlo indice de arrays
+			$title_length = strlen($rawTitle) - 1;
+
+			//averiguamos hasta que indice dejan de haber espacios
+			//en el titulo 
+			while($title_length > 0){
+				if ($rawTitle[$title_length] == ' '){
+					$title_length--;
+				}
+				elseif ($rawTitle[$title_length] != ' ') {
+					break;
+				}
+				
+			}
+			//seteamos new_title como el rawtitle hasta el punto que
+			//terminan las letras, excluyedo los espacios finales
+			foreach (range(0,$title_length) as $i) {
+						$new_title = $new_title.$rawTitle[$i];
+					}
+
 			//Insertar con ORM Illuminate
 			$blogPost = new BlogPost([
-				'title' => $_POST['title'],
+				'title' => $new_title,
 				'content' => $_POST['content'],
 				'author' => $userLogged
 			]);
@@ -70,5 +94,6 @@ class PostController extends baseController {
 			'errors' => $errors
 		]);
 	}
+
 }
 
